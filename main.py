@@ -36,4 +36,4 @@ def disconnect():
 
     print(f"Client {userid} disconnected")
 
-app.run(app, host = "0.0.0.0", port = 8080, allow_unsafe_werkzeug = True)
+app.run("0.0.0.0", allow_unsafe_werkzeug = True)
