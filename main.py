@@ -15,7 +15,7 @@ def root():
 @socketio.on("connect")
 def connect():
     userid = flask.request.sid
-    
+
     users[userid] = {"x": 0, "y": 0}
 
     print(f"Client {userid} connected")
@@ -37,4 +37,4 @@ def disconnect():
 
     print(f"Client {userid} disconnected")
 
-serve(app, host = "0.0.0.0", port = 8080)
+serve(app, host = "0.0.0.0", port = 8080, allow_unsafe_werkzeug = True)
