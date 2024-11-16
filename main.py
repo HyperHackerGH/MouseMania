@@ -1,6 +1,5 @@
 from flask_socketio import SocketIO
 import flask
-from waitress import serve
 
 app = flask.Flask(__name__, static_folder = "static")
 
@@ -37,4 +36,4 @@ def disconnect():
 
     print(f"Client {userid} disconnected")
 
-serve(app, host = "0.0.0.0", port = 8080, allow_unsafe_werkzeug = True)
+app(app, host = "0.0.0.0", port = 8080, allow_unsafe_werkzeug = True)
