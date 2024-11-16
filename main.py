@@ -1,5 +1,6 @@
 from flask_socketio import SocketIO
 import flask
+from waitress import serve
 
 app = flask.Flask(__name__, static_folder = "static")
 
@@ -14,7 +15,7 @@ def root():
 @socketio.on("connect")
 def connect():
     userid = flask.request.sid
-
+    
     users[userid] = {"x": 0, "y": 0}
 
     print(f"Client {userid} connected")
@@ -36,4 +37,4 @@ def disconnect():
 
     print(f"Client {userid} disconnected")
 
-socketio.run(app, "0.0.0.0", port = 8080)
+serve(app, host = "0.0.0.0", port = 8080)
