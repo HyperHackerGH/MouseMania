@@ -36,4 +36,4 @@ def disconnect():
 
     print(f"Client {userid} disconnected")
 
-app.run("0.0.0.0", allow_unsafe_werkzeug = True)
+socketio.run(app, host = "0.0.0.0", allow_unsafe_werkzeug = True)
